@@ -4,6 +4,11 @@
     --clr-green: #42F584;
     --clr-blue: #4BB6FF;
     --clr-orange: #FF9A00;
+    --clr-dark-ops: rgba(14, 17, 14, 60%);
+    --clr-light-ops: rgba(238, 245, 241, 60%);
+    --clr-green-ops: rgba(66, 245, 132, 60%);
+    --clr-blue-ops: rgba(75, 182, 255, 60%);
+    --clr-orange-ops: rgba(255, 154, 0, 60%);
     --clr-grd: linear-gradient(#FF9A00, #42F584, #4BB6FF, #0e110e 50%);
     --clr-grd-f: linear-gradient(#FF9A00, #42F584, #4BB6FF);
 }
@@ -24,12 +29,12 @@ body {
 .top {
     display: flex;
     flex-direction: row;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     height: fit-content;
     align-items: center;
-    background-color: rgba(14, 17, 14, 50%);
+    background-color: var(--clr-dark-ops);
     z-index: 1;
 }
 .logo {
@@ -68,8 +73,8 @@ body {
 .nav {
     display: flex;
     flex-direction: row;
-    position: absolute;
-    right: 1rem;
+    flex-grow: 1;
+    justify-content: space-evenly;
     height: 100%;
 }
 .link {
@@ -249,6 +254,7 @@ body {
         display: none;
     }
     .list {
+        position: absolute;
         display: none;
         flex-direction: column;
         height: fit-content;
@@ -291,31 +297,90 @@ body {
     }
 }
 
-.m {
-    grid-area: m;
+
+
+
+
+
+.main {
     min-height: 100vh;
-    place-items: center;
-    line-height: 1.6;
-    background: var(--clr-light);
-    font-family: sans-serif; 
-    color: var(--clr-dark);
+    width: 100%;
 }
-.button {
-    cursor: pointer;
-    background-color: var(--clr-green);
-    padding: .5em 1.25em;
-    border-radius: .25em;
-    text-decoration: none;
-    color: var(--clr-dark);
+.hero {
+    position: relative;
+    background-image: url(/IMGs/laptop.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
 }
-.button a {
-    text-decoration: none;
-    color: var(--clr-dark);
+.floating {
+    position: absolute;
+    background-color: var(--clr-dark-ops);
+    color: var(--clr-light);
+    height: 50vh;
+    width: 30vw;
+    top: 25vh;
+    left: 10vw;
+    border-radius: 2rem;
+    box-shadow: 0 0 0.35em var(--clr-light),
+    0 0 0.7em var(--clr-green),
+    0 0 1em var(--clr-green);
 }
-.button:hover,
-.button:focus {
-    background-color: var(--clr-orange);
+@media only screen and (max-width: 55rem){
+    .floating {
+        height: 60vh;
+        width: 40vw;
+    }
 }
+@media only screen and (max-width: 25rem) {
+    .floating {
+        height: 60vh;
+        width: 60vw;
+    }
+}
+.content {
+    position: relative;
+    padding: 1rem;
+    height: 100%;
+}
+.orange {
+    color: orange;
+}
+.content .link {
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}
+
+
+
+
+
+
+
+
+.portfolio {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--clr-light);
+}
+
+
+
+
+
+.vision {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--clr-light);
+}
+
+
 
 .box {
     /* border: 1px solid red; */
@@ -354,7 +419,6 @@ body {
     display: flex;
     flex-direction: row;
     background-color: var(--clr-dark);
-    grid-area: ft;
     font-weight: bold;
     height: fit-content;
     width: 100%;
@@ -465,7 +529,25 @@ body {
     transform: scale(3);
     margin: 20px;
 }
-
+.button {
+    position: absolute;
+    bottom: 1em;
+    cursor: pointer;
+    background-color: var(--clr-green);
+    margin: 1rem;
+    padding: .5em 1.25em;
+    border-radius: .25em;
+    text-decoration: none;
+    color: var(--clr-dark);
+}
+.button a {
+    text-decoration: none;
+    color: var(--clr-dark);
+}
+.button:hover,
+.button:focus {
+    background-color: var(--clr-orange);
+}
 @media (max-width: 800px) {
     .card:hover {
         transform: scale(1);
