@@ -1,5 +1,6 @@
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
+const button = document.getElementById('button');
 
 const open = () => {
     hamburger.classList.add('opened')
@@ -11,10 +12,14 @@ window.addEventListener('resize', () => {
         nav.style.display = 'none'
         hamburger.classList.remove('opened')
         nav.classList.add('list')
+        button.classList.add('button')
+        button.classList.remove('link')
     } else {
         nav.style.display = 'flex'
         hamburger.classList.add('opened')
         nav.classList.remove('list')
+        button.classList.add('link')
+        button.classList.remove('button')
     }
 })
 
