@@ -247,11 +247,9 @@ body {
 @media only screen and (max-width: 55rem) {
     .nav {
         display: none;
-        opacity: 0;
-        right: -5rem;
     }
     .list {
-        display: flex;
+        display: none;
         flex-direction: column;
         height: fit-content;
         top: 4rem;
